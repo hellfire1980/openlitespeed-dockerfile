@@ -1,6 +1,9 @@
 FROM ubuntu:18.04
 
 ENV PATH /usr/local/lsws/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ENV TZ=Asia/Kuala_Lumpur
+
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y wget
 
